@@ -1,0 +1,71 @@
+
+    <%- include("./partial/header.ejs") %> 
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">MediSolution</h2>       
+            </div> 
+
+            
+            <%- include("./partial/navbar.ejs") %> 
+            <div class="search">
+
+                <form action="/searchHospital" method="post">
+                
+                <input class="srch" type="search" name="q" placeholder="Hospital Name" required>
+                <a href="#"><button class="btn">Search</button></a>
+            </form>
+            </div>
+            
+            <div class="table">
+                    
+                    
+
+                <table>
+                    
+                        <% if (data.searchresult == undefined){ %>
+          
+                            <!-- <p> Nothing to Show </p> -->
+                
+                        
+                            <% } else { %> 
+                            <% if (data.searchresult.length == 0) {%>  
+                                <div class="create-post-header">
+                                    <p>Not Found.Try again</p>
+                                </div>
+                                
+                                <% } else{ %> 
+                                    <div class="create-post-header">
+                                        <span><%= data.title%></span>
+                                      </div>
+                            <thead>
+                                <tr>
+                                    <th>Serial</th>
+                                    <th>Hospital's Name</th>
+                                    <th>Address </th>
+                                    
+                                </tr>
+                            </thead> 
+                            <tbody>
+                              <% data.searchresult.forEach(s=> {  %>
+                        <tr>
+                            <td><%= s.hospital_id %></td>
+                            <td><%= s.name %></td>
+                            <td><%= s.address %></td>
+                            
+                        </tr>
+                        <% });}} %>
+                    </tbody>
+                </table>
+            </div> 
+                      
+                      
+                      
+                    
+                 
+                  
+              
+            
+        </div>
+    </body>
+</html>

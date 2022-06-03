@@ -1,0 +1,78 @@
+
+<%- include("./partial/header.ejs") %> 
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">MediSolution</h2>       
+            </div> 
+
+            <%- include("./partial/navbar.ejs") %> 
+
+            
+            <div class="ui equal width center alligned padded grid">
+                <div class="row">
+                    <div class="four wide column">
+
+                    </div>
+                    <div class="eight wide column">
+
+
+                        <table class="ui selectable inverted table" style="opacity:  0.95;">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" style="text-align: center;">
+                                        Make Payment
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="collapsing">
+                                      Your current balance:
+                                    </td>
+                                    <td>
+                                        $<%= data.currentAmount %>
+                                    </td>
+                                    <!-- <td class="right aligned collapsing"><a>Edit</a></td> -->
+                                </tr>
+                                <tr>
+                                    <td class="collapsing">
+                                        Enter amount:
+                                    </td>
+                                    <td>
+                                        $<%= data.amount %>
+                                    </td>
+                                    <td>
+                                        <form action="/payment" method="POST">
+                                            <input type="hidden" name="name" value="<%= data.name %>">
+                                            <input type="hidden" name="amount" value="<%= data.amount %>">
+                                            <input type="hidden" name="email" value="<%= data.email %>"> 
+                                            
+                                            <script
+                                                src="//checkout.stripe.com/v2/checkout.js"
+                                                class="stripe-button"
+                                                data-key="<%= data.key %>" 
+                                                data-amount="<%= data.amount * 100 %>"
+                                                data-currency="usd" 
+                                                data-name="<%= data.name %>" 
+                                                data-description="Topping up currency"
+                                                data-email = "<%= data.email %>" 
+                                                data-locale="auto" > 
+                                                </script> 
+                                            </form> 
+                                    </td>
+                                    
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

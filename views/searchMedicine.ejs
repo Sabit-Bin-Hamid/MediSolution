@@ -1,0 +1,84 @@
+
+    <%- include("./partial/header.ejs") %> 
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">MediSolution</h2>       
+            </div> 
+
+            <%- include("./partial/navbar.ejs") %> 
+            <div class="search">
+                <form action="/searchMedicine" method="post">
+
+               
+                <input class="srch" type="search" name="q" placeholder="Medicine Name" required>
+                <a href="#"><button class="btn">Search</button></a>
+                </form>
+            </div>
+            
+                <!-- gg -->
+            
+                    
+                    
+                      
+                    
+                 
+                  
+                    
+          
+                <div class="table">
+                    
+                    
+
+                <table>
+                    
+                        <% if (data.searchresult == undefined){ %>
+          
+                            <!-- <p> Nothing to Show </p> -->
+                
+                        
+                            <% } else { %> 
+                            <% if (data.searchresult.length == 0) {%>  
+                                <div class="create-post-header">
+                                    <p>Not Found.Try again</p>
+                                </div>
+                                
+                                <% } else{ %> 
+                                    <div class="create-post-header">
+                                        <span><%= data.title%></span>
+                                      </div>
+                            <thead>
+                                <tr>
+                                    <th>Serial</th>
+                                    <th>Medicine's Name</th>
+                                    <th>Generic Name</th>
+                                    <th>Alter. Brands</th>
+                                    <th>SideEffects</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                              <% data.searchresult.forEach(s=> {  %>
+                        <tr>
+                            <td><%= s.med_id %></td>
+                            <td><%= s.med_name %></td>
+                            <td><%= s.generic_name %></td>
+                            <td><%= s.alternative_brands %></td>
+                            <td><%= s.side_effects %></td>
+                            
+                        </tr>
+                        <% });}} %>
+                    </tbody>
+                </table>
+            </div> 
+                      
+                      
+                      
+                    
+                 
+                  
+              
+            
+        </div>
+    </body>
+</html>
+

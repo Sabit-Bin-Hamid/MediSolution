@@ -1,0 +1,28 @@
+<%- include("./partial/header.ejs") %> 
+<body>
+    <div class="main">
+        <div class="navbar">
+            <h2 class="logo">MediSolution</h2>       
+        </div> 
+        
+        <div class="loginbox">
+            <img src="../image/avatar.png" class="avatar">
+               <h1 align="center">Login</h1>
+
+            <form id="login" action="/login" method="POST">
+            <p>Email</p>
+            <input type="text" name="email" placeholder="Enter your email">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter password">
+            <button class="btn"><a href="#">Login</a></button>
+            
+            <p class="link">Don't have an account?<br>
+            <a href="/userReg">Sign up here</a> </p>
+            </form>
+        </div> 
+        
+       
+    </div> 
+    
+</body>
+</html>

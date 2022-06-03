@@ -1,0 +1,23 @@
+<%- include("./partial/header.ejs") %> 
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">MediSolution</h2>       
+            </div> 
+
+            <%- include("./partial/navbar2.ejs") %> 
+            <div class="presentation">
+                <h1><i>PRESCRIPTION</i></h1>
+                <form action="/prescription" method="post">
+                    <input  required type="text" name="name" placeholder="Patient Name">
+                    <input  required type="text" name="id" placeholder="Patient id">
+                    <input    required type="Date" name="date" placeholder="Date">
+                    <textarea   required type="text" name="detail" placeholder= "Write Prescription...."></textarea>
+                    <button  type="submit" value="POST"><i>Send</i></button>
+                </form>
+            </div> 
+            
+        </div>
+        
+    </body>
+</html>

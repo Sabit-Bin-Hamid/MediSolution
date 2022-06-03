@@ -1,0 +1,44 @@
+<%- include("./partial/header.ejs") %> 
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">MediSolution</h2>       
+            </div> 
+
+            <!-- <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Doctor</a></li>
+                    <li><a href="#">Hospital </a></li>
+                    <li><a href="#">Appointment</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Login/signup</a></li>
+                </ul>
+            </div> -->
+        </div>
+        <div class="signupdoc">
+            <img src="../image/avatar.png" class="avatar">
+            <h1 align="center">Sign up</h1>
+         <form action="/docReg" method="post" id="signupdoc">
+        <p>Email</p>
+        <input type="text" name="demail" placeholder="Enter your email">
+         <p>Name</p>
+         <input type="text" name="dname" placeholder="Enter your name">
+         <p>Phone no </p>
+         <input type="number" name="dnumber" placeholder="Enter your number">
+         <p>Specialist in</p>
+         <input type="text" name="dspecialist" placeholder="Enter your specialization in">
+         <p>Chamber address 1</p>
+         <input type="text" name="daddress" placeholder="Enter your hospital/Chamber Address 1">
+         <p>Chamber address 2</p>
+         <input type="text" name="daddress2" placeholder="Enter your hospital/Chamber Address 2">
+         <p>Password</p>
+         <input type="password" name="dpassword" placeholder="Enter password">
+         
+         <button class="btn"><a href="/login">Sign up</a></button>
+         <p class="link">Already have an account?<br>
+            <a href="/login">Click here to login</a> </p>
+         </form>
+        </div>
+    </body>
+</html>

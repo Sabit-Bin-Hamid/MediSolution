@@ -1,0 +1,25 @@
+<%- include("./partial/header.ejs") %> 
+<body>
+    <div class="main">
+        <div class="navbar">
+            <h2 class="logo">MediSolution</h2>       
+        </div> 
+        <%- include("./partial/navbar.ejs") %> 
+        <div class="Review">
+            <h2>Review</h2>
+            <form action="/Review" method="POST">
+                <input type="text" name="Name" placeholder="Full Name..."><br>
+                <input type="text"name="Email" placeholder="Email Address..."><br>
+                <textarea name="Review"placeholder= "Please leave your review..."></textarea>
+                
+                <button type="submit"> Submit</button>
+            </form>
+        </div> 
+    </form>
+</body>
+</html>
+<body>
+
+
+      
+ 

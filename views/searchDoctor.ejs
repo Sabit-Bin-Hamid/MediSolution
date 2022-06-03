@@ -1,0 +1,84 @@
+
+    <%- include("./partial/header.ejs") %> 
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">MediSolution</h2>       
+            </div> 
+
+            <%- include("./partial/navbar.ejs") %> 
+            <div class="search">
+                <form action="/searchDoctor" method="post">
+
+               
+                <input class="srch" type="search" name="q" placeholder="Doctor Name" required>
+                <a href="#"><button class="btn">Search</button></a>
+                </form>
+            </div>
+            
+                <!-- gg -->
+            
+                    
+                    
+                      
+                    
+                 
+                  
+                    
+          
+                <div class="table">
+                    
+                    
+
+                <table>
+                    
+                        <% if (data.searchresult == undefined){ %>
+          
+                            <!-- <p> Nothing to Show </p> -->
+                
+                        
+                            <% } else { %> 
+                            <% if (data.searchresult.length == 0) {%>  
+                                <div class="create-post-header">
+                                    <p>Not Found.Try again</p>
+                                </div>
+                                
+                                <% } else{ %> 
+                                    <div class="create-post-header">
+                                        <span><%= data.title%></span>
+                                      </div>
+                            <thead>
+                                <tr>
+                                    <th>Serial</th>
+                                    <th>Doctor's Name</th>
+                                    <th>Specialist</th>
+                                    <th>Address 01</th>
+                                    <th>Address 02</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                              <% data.searchresult.forEach(s=> {  %>
+                        <tr>
+                            <td><%= s.doc_id %></td>
+                            <td><%= s.doc_name %></td>
+                            <td><%= s.subject %></td>
+                            <td><%= s.chamber1 %></td>
+                            <td><%= s.chamber2 %></td>
+                            
+                        </tr>
+                        <% });}} %>
+                    </tbody>
+                </table>
+            </div> 
+                      
+                      
+                      
+                    
+                 
+                  
+              
+            
+        </div>
+    </body>
+</html>
+
